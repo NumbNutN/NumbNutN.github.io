@@ -52,48 +52,46 @@ git add --all
 
 ## 一些常见的信息
 
+error: RPC failed; curl 28 OpenSSL SSL_read: Connection was aborted, errno 10053  
+fatal: the remote end hung up unexpectedly  
+fatal: the remote end hung up unexpectedly  
+Everything up-to-date  
+104目前这个错误往往只因为梯子不好网络连接不好  
 
 
-error: RPC failed; curl 28 OpenSSL SSL_read: Connection was aborted, errno 10053
-fatal: the remote end hung up unexpectedly
-fatal: the remote end hung up unexpectedly
-Everything up-to-date
-104目前这个错误往往只因为梯子不好网络连接不好
-
-
- ! [rejected]        master -> master (fetch first)
-error: failed to push some refs to 'https://github.com/<USERNAME>/<REPO>'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
+ ! [rejected]        master -> master (fetch first)  
+error: failed to push some refs to 'https://github.com/<USERNAME>/<REPO>'  
+hint: Updates were rejected because the remote contains work that you do  
+hint: not have locally. This is usually caused by another repository pushing  
+hint: to the same ref. You may want to first integrate the remote changes  
+hint: (e.g., 'git pull ...') before pushing again.  
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.  
 101这个错误是由于远程库在距你上一次push你的分支以后信息有变动，需要拉取远程库和你的本地代码merge后再push
 
 
-Merge branch 'master' of https://github.com/NumbNutN/TestRepo
-# Please enter a commit message to explain why this merge is necessary,
-# especially if it merges an updated upstream into a topic branch.
-#
-# Lines starting with '#' will be ignored, and an empty message aborts
-# the commit.
+Merge branch 'master' of https://github.com/NumbNutN/TestRepo  
+\# Please enter a commit message to explain why this merge is necessary,  
+\# especially if it merges an updated upstream into a topic branch.  
+\#  
+\# Lines starting with '#' will be ignored, and an empty message aborts  
+\# the commit.  
 102这个情况出现于pull远程库时你的本地库已经有改动，需要代码merge的时候要求说明
 
 
 ## Test
 
-2022_7_19_23:41 在本地repo新建文件test.txt
-2022_7_19_23:53 在remote里新建文件README.md
-2022_7_19_23:59 尝试把本地push到远程，报错101
-2022_7_20_0:01 把remote拉取到本地，本地工作区新增文件README.md
+2022_7_19_23:41 在本地repo新建文件test.txt  
+2022_7_19_23:53 在remote里新建文件README.md  
+2022_7_19_23:59 尝试把本地push到远程，报错101  
+2022_7_20_0:01 把remote拉取到本地，本地工作区新增文件README.md  
 
-下一步计划：两边库分别作进一步修改模拟merge冲突
-2022_7_20_0:07 remote新commit txt文件remote_code.txt
-2022_7_20_0:09 local新commit文件 local_code.txt
-2022_7_20_0:10 尝试把localpush到remote，报错101
-2022_7_20_0:16 把remoteRepo Pull到local 出现102，要求说明merge的必要性
-2022_7_20_0:16 本地新增文件remote_code.txt
-
+下一步计划：两边库分别作进一步修改模拟merge冲突  
+2022_7_20_0:07 remote新commit txt文件remote_code.txt  
+2022_7_20_0:09 local新commit文件 local_code.txt  
+2022_7_20_0:10 尝试把localpush到remote，报错101  
+2022_7_20_0:16 把remoteRepo Pull到local 出现102，要求说明merge的必要性  
+2022_7_20_0:16 本地新增文件remote_code.txt  
+ 
 
 
 

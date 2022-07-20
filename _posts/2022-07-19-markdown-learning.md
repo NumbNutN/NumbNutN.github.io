@@ -78,7 +78,7 @@ function fun(){ <br>
 效果： 
 ```
     function fun(){
-        console.log("牛逼哄哄的代码);
+        console.log("牛逼哄哄的代码);  
     }
 ```
 
