@@ -110,6 +110,9 @@ Merge branch 'master' of https://github.com/NumbNutN/TestRepo
 102这个情况出现于pull远程库时你的本地库已经有改动，需要代码merge的时候要求说明
 
 
+## VsCode与git配合状态显示
+[vscode-git中的U,M和D文件标记的含义 --CSDN](https://blog.csdn.net/qq_43827595/article/details/100393316)  
+
 ## Test
 
 2022_7_19_23:41 在本地repo新建文件test.txt  
