@@ -53,6 +53,13 @@ git pull https://<your_token>@github.com/<USERNAME>/<REPO>.git 分支
 资料来源：  
 [【突发】解决remote: Support for password authentication was removed on August 13, 2021. Please use a perso](https://helloai.blog.csdn.net/article/details/119696726?spm=1001.2014.3001.5506)  
 
+```
+#当本地分支名在远程库不含有时，将会新建一个新的分支？存疑
+git pull origin master
+
+#当本地不含有这个分支名，就会报错
+```
+
 ### 添加到暂存区 
 ```
 git add <filename>
@@ -110,6 +117,11 @@ Merge branch 'master' of https://github.com/NumbNutN/TestRepo
 102这个情况出现于pull远程库时你的本地库已经有改动，需要代码merge的时候要求说明
 
 
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/NumbNutN/aUnfinishedImageEditTool.git'
+
+
+
 ## VsCode与git配合状态显示
 [vscode-git中的U,M和D文件标记的含义 --CSDN](https://blog.csdn.net/qq_43827595/article/details/100393316)  
 
@@ -132,7 +144,7 @@ Merge branch 'master' of https://github.com/NumbNutN/TestRepo
 [GitHub提交的时显示Updates were rejected because the remote contains work that you do --CSDN](https://blog.csdn.net/u012308586/article/details/104905828?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0-104905828-blog-112171133.pc_relevant_sortByStrongTime&spm=1001.2101.3001.4242.1&utm_relevant_index=3)  
 [【突发】解决remote: Support for password authentication was removed on August 13, 2021. Please use a perso --CSDN](https://helloai.blog.csdn.net/article/details/119696726?spm=1001.2014.3001.5506)  
 [Git 常见错误 之 error: src refspec xxx does not match any / error: failed to push some refs to 简单解决方法 --CSDN](https://blog.csdn.net/u014361280/article/details/109703556)  
-
+[关于git的问题：error: src refspec main does not match any --CSDN](https://blog.csdn.net/gongdamrgao/article/details/115032436)  
 
 
 
