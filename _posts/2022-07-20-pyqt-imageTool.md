@@ -53,7 +53,7 @@ def ShowPic(cvImg, label):
 ```
 
 
-说明问题：[Qt中用QLabel显示OpenCV中Mat图像数据出现扭曲现象的解决 --CSDN](https://blog.csdn.net/loveaborn/article/details/7680834)
+解决方法：[Qt中用QLabel显示OpenCV中Mat图像数据出现扭曲现象的解决 --CSDN](https://blog.csdn.net/loveaborn/article/details/7680834)
 原因：
 缺省了一个参数bytePerLine造成图像显示异常
 显然这里默认采用的24位色深，RGB三个通道每个各用3个字节存储，因此每行的字节数为shape[1]*3
@@ -68,6 +68,7 @@ img = cv2.imdecode(raw_data,cv2.IMREAD_COLOR)
 ```
 这里调用了numpy的api来确保支持中文
 再转化成opencv
+
 这里提到了用Qimage的API读取图片的方法[解决OpenCV的imread/imwrite在Qt环境不支持中文路径的问题 --CSDN](https://blog.csdn.net/libaineu2004/article/details/125350118)
 2.
 ```
@@ -89,10 +90,65 @@ label.setPixmap(img4)
 最后一步将Qimage转化为专为屏幕显示设计的QPixmap格式
 ```
 这个链接可以更详细的了解Qt提供的几种图片格式：[QPixmap、QImage、QPicture、QBitmap四者区别](https://blog.csdn.net/luoyayun361/article/details/123366133)
-[奇怪的QImage转QPixmap方式 --CSDN](https://www.csdn.net/tags/Ntjagg2sNjIzNjEtYmxvZwO0O0OO0O0O.html)
 
-# Mission 3
 
+# Mission 3 ：完成描边转换功能
+
+### 重大问题
+原有思路是为负责描边功能的python类class EdgeDetection设置两个类的属性  
+- tempSobelImg 负责存储由sobel算子进行一次计算得到\[边缘 白\]\[填充 黑\]  
+- tempFlipImg 负责存储由tempSobelImg反转后得到的\[边缘 黑\]\[填充 白\]  
+属性定义方法如下：  
+```
+class EdgeDetection:
+
+    tempSobelImg = None
+    tempFlipImg = None
+
+    def __init__(self):
+    ...
+```
+对图像进行反转的方式如下：
+```
+    def FlipImg(self,img):
+        newImg = img
+        i = 0
+        j = 0
+        while i < newImg.shape[0]:
+            while j < newImg.shape[1]:
+                newImg[i][j] = 255 - img[i][j]
+                j += 1
+            j = 0
+            i += 1
+        return newImg
+```
+
+```
+    def FindEdge(self):
+        if (SI.ui.cBoxCvtMargin.isChecked()):
+            sobelx = cv2.Sobel(SI.showCvImg[0], -1, 1, 0, ksize=3)
+            sobely = cv2.Sobel(SI.showCvImg[0], -1, 0, 1, ksize=3)
+            self.tempSobelImg = cv2.addWeighted(sobelx, 0.5, sobely, 0.5, 0) #步骤I.sobel算子处理得到
+            self.tempFlipImg = self.FlipImg(self.tempSobelImg) #步骤II.把翻转后的图片存储在EdgeDection.tempFlipImg内
+            SI.showCvImg[0] = self.tempSobelImg
+        else:
+            SI.showCvImg[0] = SI.showCvImg[1]
+        SI.ShowPic(SI.showCvImg[0], SI.ui.labelShowImg)
+```
+结果发现  
+在上述代码处理到\[II.步骤二\]后，tempSobelImg和tempFlipImg的内容物竟然是一致的，存储的是反转后的图像！  
+最后的原因竟是...  
+```
+def FlipImg(self,img):
+        newImg = img
+```
+numpy模块ndarray数据类型的赋值运算=是浅拷贝，将img的地址赋给了newImg，而反转操作将图片反转并让两个属性指向了同一个内存地址导致了这个调试了一天的问题，上述代码应该修改为  
+```
+def FlipImg(self,img):
+        newImg = numpy.copy(img)
+```
+进行一次深拷贝，即同样的图像矩阵在两个不同的地址存储了两次  
+下文可以帮助进一步理解深/浅拷贝的具体机制：[Numpy中的深拷贝与浅拷贝（视图） -CSDN](https://blog.csdn.net/xxq2002/article/details/123115663)  
 
 
 
@@ -106,8 +162,10 @@ QtGui.QImage(uchar * data, int width, int height, int bytesPerLine, Format forma
 QImage img(qImageBuffer, cv_mat.cols, cv_mat.rows, cv_mat.step, QImage::Format_Indexed8);
 [CSDN](https://bbs.csdn.net/topics/390918591?page=1)
 很多友链：[【Pyqt】opencv显示在label中异常的问题，会出现斜歪的情况解决方案 --CSDN](https://blog.csdn.net/g944468183/article/details/124014785)
+[奇怪的QImage转QPixmap方式 --CSDN](https://www.csdn.net/tags/Ntjagg2sNjIzNjEtYmxvZwO0O0OO0O0O.html)
 
 cv2.COLOR_BGR2RGB
 Qimage.FORMAT_BGR888
-C:
+np.uint8
+cv2.IMREAD_COLOR
 CV_8UC1

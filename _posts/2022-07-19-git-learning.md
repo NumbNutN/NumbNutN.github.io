@@ -120,6 +120,8 @@ Merge branch 'master' of https://github.com/NumbNutN/TestRepo
 error: src refspec main does not match any
 error: failed to push some refs to 'https://github.com/NumbNutN/aUnfinishedImageEditTool.git'
 
+fatal: couldn't find remote ref root
+
 
 
 ## VsCode与git配合状态显示
