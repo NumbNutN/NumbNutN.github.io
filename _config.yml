@@ -9,8 +9,8 @@ url: "http://numbnut.bond/"  # 此处填写你的博客地址
 # About/contact
 owner: 
   name: "NumbNut" # 填写作者信息：名字
-  email: X@gmail.com # 填写作者信息：邮箱
-  bio: "你的博客描述" # 填写作者信息：博客描述
+  email: lgd12581@outlook.com # 填写作者信息：邮箱
+  bio: "以后再写描述" # 填写作者信息：博客描述
 
 # Data
 gavatar: img/favicon.png # 浏览器地址栏小图标，可自定义更改
@@ -33,7 +33,7 @@ paginate: 8
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone: Asia/Shanghai
+timezone: Asia/Guangzhou
 
 # Defaults for posts
 defaults:

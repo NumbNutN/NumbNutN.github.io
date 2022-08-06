@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 记录Pycharm,Clion的常用快捷键操作集
+title: 记录学习图像处理的图片属性[位深度/通道数/颜色模式]
 date: 2022-7-20
 categories: blog
 tags: [pyqt,python,opencv]
 description: [Error]
 ---
 
-记录图像处理的学习
+## 记录图像处理的学习
 
 了解图像的几个属性
 位深度
