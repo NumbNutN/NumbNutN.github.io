@@ -13,20 +13,20 @@ description: None
 1) 检查电机底座螺丝是否拧紧
 >底座不稳可能导致电机脱出，绞断线缆 。
 
-<img src="../img/post-img/for-safety-screws.jpg" alt="for-safety-screws" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/NumbNutN/NumbNutN.github.io/main/img/post-img/for-safety-screws.jpg" alt="for-safety-screws" style="zoom:33%;" />
 
-2) 检查电机桨夹（子弹头）是否拧紧，请使用质地较硬的扳手顺时针拧紧，切勿用手拧紧
+1) 检查电机桨夹（子弹头）是否拧紧，请使用质地较硬的扳手顺时针拧紧，切勿用手拧紧
 >未拧紧容易导致桨夹和螺旋桨甩出，造成严重后果。
 
-<img src="../img/post-img/for-safety-bullet.jpg" alt="for-safety-bullet" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/NumbNutN/NumbNutN.github.io/main/img/post-img/for-safety-bullet.jpg" alt="for-safety-bullet" style="zoom:33%;" />
 
 3) 为螺旋桨加装保护圈，有效防止螺旋桨和外部环境发生碰撞
 
-<img src="../img/post-img/for-safety-blade-protection.jpg" alt="for-safety-blade-protection" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/NumbNutN/NumbNutN.github.io/main/img/post-img/for-safety-blade-protection.jpg" alt="for-safety-blade-protection" style="zoom:33%;" />
 
 4) 为电源和动力系统的供电加装拨动开关，在软件控制失效时紧急切断动力源
 
-<img src="../img/post-img/for-safety-switch.jpg" alt="for-safety-switch" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/NumbNutN/NumbNutN.github.io/main/img/post-img/for-safety-switch.jpg" alt="for-safety-switch" style="zoom:33%;" />
 
 5) 减少飞线，使用轧带或绝缘胶带收纳飞线
 
@@ -52,4 +52,4 @@ description: None
 
 4) 关注电池状态，为电池加装电压监测报警器
 
-<img src="../img/post-img/for-safety-beep.jpg" alt="for-safety-beep" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/NumbNutN/NumbNutN.github.io/main/img/post-img/for-safety-beep.jpg" alt="for-safety-beep" style="zoom:33%;" />
